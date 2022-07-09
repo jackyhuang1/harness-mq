@@ -1,0 +1,17 @@
+connector:
+  name: eks1
+  identifier: eks1
+  description:
+  orgIdentifier: default
+  projectIdentifier: Default_Project_1656638470443
+  type: K8sCluster
+  spec:
+    credential:
+      type: ManualConfig
+      spec:
+        masterUrl: https://myaws
+        auth:
+          type: UsernamePassword
+          spec:
+            username: admin
+            passwordRef: githubjackyhuang1
