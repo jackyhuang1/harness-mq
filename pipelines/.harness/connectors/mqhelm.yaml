@@ -1,0 +1,15 @@
+connector:
+  name: mq-helm
+  identifier: mqhelm
+  description:
+  orgIdentifier: default
+  projectIdentifier: Default_Project_1656638470443
+  type: HttpHelmRepo
+  spec:
+    helmRepoUrl: https://ibm-messaging.github.io/mq-helm
+    auth:
+      type: UsernamePassword
+      spec:
+        username: jackyhuang1
+        usernameRef: null
+        passwordRef: githubjackyhuang1
