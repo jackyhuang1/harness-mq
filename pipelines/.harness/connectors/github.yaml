@@ -1,0 +1,22 @@
+connector:
+  name: github
+  identifier: github
+  description:
+  orgIdentifier: default
+  projectIdentifier: Default_Project_1656638470443
+  type: Github
+  spec:
+    url: https://github.com/jackyhuang1/harness-mq
+    authentication:
+      type: Http
+      spec:
+        type: UsernameToken
+        spec:
+          username: jackyhuang1
+          tokenRef: githubjackyhuang1
+    apiAccess:
+      type: Token
+      spec:
+        tokenRef: githubjackyhuang1
+    executeOnDelegate: false
+    type: Repo
