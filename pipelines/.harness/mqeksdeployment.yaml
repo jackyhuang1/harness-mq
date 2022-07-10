@@ -86,8 +86,20 @@ pipeline:
                                                     connectorRef: github
                                                     gitFetchType: Branch
                                                     paths:
-                                                        - "manifest/mtlsqm.yaml "
+                                                        - manifest/secureapp_nativeha.yaml
                                                     branch: main
+                                  - manifest:
+                                        identifier: mq-helm
+                                        type: HelmChart
+                                        spec:
+                                            store:
+                                                type: Http
+                                                spec:
+                                                    connectorRef: mqhelm
+                                            chartName: ibm-mq
+                                            chartVersion: 3.0.0
+                                            helmVersion: V3
+                                            skipResourceVersioning: true
                           type: NativeHelm
                   infrastructure:
                       environmentRef: mqekscluster
