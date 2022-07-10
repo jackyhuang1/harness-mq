@@ -1,0 +1,15 @@
+connector:
+  name: aws-sydney
+  identifier: awssydney
+  description:
+  orgIdentifier: default
+  projectIdentifier: Default_Project_1656638470443
+  type: Aws
+  spec:
+    credential:
+      type: ManualConfig
+      spec:
+        accessKey: AKIA3KYBZNRSWKGRPENJ
+        secretKeyRef: awsdevopstoken
+    delegateSelectors:
+    - laptop
