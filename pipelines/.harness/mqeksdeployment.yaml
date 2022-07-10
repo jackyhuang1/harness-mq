@@ -108,7 +108,7 @@ pipeline:
                           spec:
                               connectorRef: eks1
                               namespace: default
-                              releaseName: mq-nativeha
+                              releaseName: secureapphelm
                       allowSimultaneousDeployments: true
                   execution:
                       steps:
