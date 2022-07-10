@@ -64,3 +64,63 @@ pipeline:
                             - AllErrors
                         action:
                             type: StageRollback
+        - stage:
+              name: mq helm deployment
+              identifier: mq_helm_deployment
+              description: ""
+              type: Deployment
+              spec:
+                  serviceConfig:
+                      serviceRef: mqeks
+                      serviceDefinition:
+                          spec:
+                              variables: []
+                              manifests:
+                                  - manifest:
+                                        identifier: mq-helm-values
+                                        type: Values
+                                        spec:
+                                            store:
+                                                type: Github
+                                                spec:
+                                                    connectorRef: github
+                                                    gitFetchType: Branch
+                                                    paths:
+                                                        - "manifest/mtlsqm.yaml "
+                                                    branch: main
+                          type: NativeHelm
+                  infrastructure:
+                      environmentRef: mqekscluster
+                      infrastructureDefinition:
+                          type: KubernetesDirect
+                          spec:
+                              connectorRef: eks1
+                              namespace: default
+                              releaseName: release-<+INFRA_KEY>
+                      allowSimultaneousDeployments: true
+                  execution:
+                      steps:
+                          - step:
+                                name: Helm Deployment
+                                identifier: helmDeployment
+                                type: HelmDeploy
+                                timeout: 10m
+                                spec:
+                                    skipDryRun: false
+                                    delegateSelectors:
+                                        - laptop
+                                failureStrategies: []
+                      rollbackSteps:
+                          - step:
+                                name: Helm Rollback
+                                identifier: helmRollback
+                                type: HelmRollback
+                                timeout: 10m
+                                spec: {}
+              tags: {}
+              failureStrategies:
+                  - onFailure:
+                        errors:
+                            - AllErrors
+                        action:
+                            type: StageRollback
