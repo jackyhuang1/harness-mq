@@ -9,9 +9,8 @@ connector:
     credential:
       type: ManualConfig
       spec:
-        masterUrl: https://myaws
+        masterUrl: https://3C74928F704FC98E2F5CF5166398AF4B.yl4.ap-southeast-2.eks.amazonaws.com
         auth:
-          type: UsernamePassword
+          type: ServiceAccount
           spec:
-            username: admin
-            passwordRef: githubjackyhuang1
+            serviceAccountTokenRef: ekstoken
