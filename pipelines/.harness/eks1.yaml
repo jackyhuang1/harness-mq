@@ -7,10 +7,6 @@ connector:
   type: K8sCluster
   spec:
     credential:
-      type: ManualConfig
-      spec:
-        masterUrl: https://3C74928F704FC98E2F5CF5166398AF4B.yl4.ap-southeast-2.eks.amazonaws.com
-        auth:
-          type: ServiceAccount
-          spec:
-            serviceAccountTokenRef: ekstoken
+      type: InheritFromDelegate
+    delegateSelectors:
+    - laptop
