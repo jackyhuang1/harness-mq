@@ -36,7 +36,7 @@ pipeline:
                       infrastructureDefinition:
                           type: KubernetesDirect
                           spec:
-                              connectorRef: eks1
+                              connectorRef: <+input>
                               namespace: default
                               releaseName: mq-nativeha
                       allowSimultaneousDeployments: true
@@ -106,7 +106,7 @@ pipeline:
                       infrastructureDefinition:
                           type: KubernetesDirect
                           spec:
-                              connectorRef: eks1
+                              connectorRef: <+input>
                               namespace: default
                               releaseName: secureapphelm
                       allowSimultaneousDeployments: true
