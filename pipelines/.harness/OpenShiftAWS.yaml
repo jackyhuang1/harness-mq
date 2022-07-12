@@ -1,0 +1,17 @@
+connector:
+  name: OpenShift-AWS
+  identifier: OpenShiftAWS
+  description: ""
+  orgIdentifier: default
+  projectIdentifier: Default_Project_1656638470443
+  type: K8sCluster
+  spec:
+    credential:
+      type: ManualConfig
+      spec:
+        masterUrl: https://api.itzocp-6650021f9f-nvx7.selfservice.aws.techzone.ibm.com:6443
+        auth:
+          type: UsernamePassword
+          spec:
+            username: kubeadmin
+            passwordRef: openshiftawskubeadminsecret
